@@ -1,18 +1,25 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+  #Home.main-section
+    .media-card-container
+      h1 Media Card
+      MediaCard
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import MediaCard from '@/components/MediaCard.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    MediaCard
   }
 }
 </script>
+
+<style lang="sass" scoped>
+
+  .main-section
+    h1
+      margin: 0
+
+</style>
