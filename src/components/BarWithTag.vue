@@ -1,5 +1,5 @@
 <template lang="pug">
-  #BarWithTag.flex
+  .BarWithTag.flex
     .score-box.flex
       .bar-box(v-for="header in data.score_header")
         h5.score-title {{ header.title }}
@@ -35,7 +35,6 @@ export default {
     setting: {
       deep: true,
       handler: function (newVal, oldVal) {
-        console.log('in BarWithTag Setting', newVal)
         this.data = JSON.parse(JSON.stringify(newVal))
         Object.keys(this.data.score).forEach(d => {
           this.data.score[d].now = 0
@@ -114,7 +113,7 @@ export default {
 <style lang="sass" scoped>
   @import '../sass/setting.sass'
 
-  #BarWithTag
+  .BarWithTag
     .score-box
       width: 100%
       &.flex
