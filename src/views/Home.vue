@@ -18,6 +18,9 @@
     .avatar-info-container
       h2 Avatar Info
       AvatarInfo(:setting="avatarInfoProps")
+    .tabs-container
+      h2 Tabs
+      Tabs(:tabs="tabsProps" @selected="tabsSelectInfo")
 </template>
 
 <script>
@@ -27,6 +30,7 @@ import Roadmap from '@/components/Roadmap'
 import Avatar from '@/components/Avatar'
 import AvatarTree from '@/components/AvatarTree'
 import AvatarInfo from '@/components/AvatarInfo'
+import Tabs from '@/components/Tabs'
 
 // Props
 import barWithTagProps from '@/components/props/barWithTagProps.json'
@@ -34,6 +38,7 @@ import roadmapProps from '@/components/props/roadmapProps.json'
 import avatarProps from '@/components/props/avatarProps.json'
 import avatarTreeProps from '@/components/props/avatarTreeProps.json'
 import avatarInfoProps from '@/components/props/avatarInfoProps.json'
+import tabsProps from '@/components/props/tabsProps.json'
 
 export default {
   name: 'home',
@@ -43,7 +48,8 @@ export default {
     Roadmap,
     Avatar,
     AvatarTree,
-    AvatarInfo
+    AvatarInfo,
+    Tabs
   },
   data: function () {
     return {
@@ -51,7 +57,8 @@ export default {
       roadmapProps: [],
       avatarProps: {},
       avatarTreeProps: [],
-      avatarInfoProps: {}
+      avatarInfoProps: {},
+      tabsProps: []
     }
   },
   mounted() {
@@ -60,9 +67,13 @@ export default {
     this.avatarProps = avatarProps
     this.avatarTreeProps = avatarTreeProps
     this.avatarInfoProps = avatarInfoProps
+    this.tabsProps = tabsProps
   },
   methods: {
     avatarTreeSelectInfo(index) {
+      console.log('select', index)
+    },
+    tabsSelectInfo(index) {
       console.log('select', index)
     }
   }

@@ -33,13 +33,6 @@ export default {
   data: function () {
     return {}
   },
-  watch: {
-    setting: {
-      handler: function (newVal, oldVal) {
-        console.log(newVal, oldVal)
-      }
-    }
-  },
   methods: {}
 }
 </script>
