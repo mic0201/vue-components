@@ -21,6 +21,9 @@
     .tabs-container
       h2 Tabs
       Tabs(:tabs="tabsProps" @selected="tabsSelectInfo")
+    .menu-container
+      h2 Menu
+      Menu(:menu="menuProps")
 </template>
 
 <script>
@@ -31,6 +34,7 @@ import Avatar from '@/components/Avatar'
 import AvatarTree from '@/components/AvatarTree'
 import AvatarInfo from '@/components/AvatarInfo'
 import Tabs from '@/components/Tabs'
+import Menu from '@/components/Menu'
 
 // Props
 import barWithTagProps from '@/components/props/barWithTagProps.json'
@@ -39,6 +43,7 @@ import avatarProps from '@/components/props/avatarProps.json'
 import avatarTreeProps from '@/components/props/avatarTreeProps.json'
 import avatarInfoProps from '@/components/props/avatarInfoProps.json'
 import tabsProps from '@/components/props/tabsProps.json'
+import menuProps from '@/components/props/menuProps.json'
 
 export default {
   name: 'home',
@@ -49,7 +54,8 @@ export default {
     Avatar,
     AvatarTree,
     AvatarInfo,
-    Tabs
+    Tabs,
+    Menu
   },
   data: function () {
     return {
@@ -58,7 +64,8 @@ export default {
       avatarProps: {},
       avatarTreeProps: [],
       avatarInfoProps: {},
-      tabsProps: []
+      tabsProps: [],
+      menuProps: {}
     }
   },
   mounted() {
@@ -68,6 +75,7 @@ export default {
     this.avatarTreeProps = avatarTreeProps
     this.avatarInfoProps = avatarInfoProps
     this.tabsProps = tabsProps
+    this.menuProps = menuProps
   },
   methods: {
     avatarTreeSelectInfo(index) {
@@ -85,5 +93,8 @@ export default {
   .main-section
     h2
       margin: 0
+
+  .menu-container
+    height: 60px
 
 </style>

@@ -1,0 +1,92 @@
+{
+  "img": "/img/icon.png",
+  "lang": [
+    {
+      "name": "繁體中文 TW",
+      "lang": "tw"
+    },
+    {
+      "name": "英文 EN",
+      "lang": "en"
+    },
+    {
+      "name": "日文 JA",
+      "lang": "ja"
+    },
+    {
+      "name": "韓文 KO",
+      "lang": "ko"
+    },
+    {
+      "name": "泰文 TH",
+      "lang": "th"
+    }
+  ],
+  "menu": [
+    {
+      "name": "首頁",
+      "type": "page",
+      "link": "/"
+    },
+    {
+      "name": "關於我們",
+      "type": "page",
+      "link": "/about"
+    },
+    {
+      "name": "白皮書",
+      "type": "download",
+      "link": "/file/whitepaper.pdf"
+    },
+    {
+      "name": "如何運作",
+      "type": "file",
+      "link": "/file/whitepaper.pdf"
+    },
+    {
+      "name": "市場",
+      "isList": true,
+      "item": [
+        {
+          "name": "ONE",
+          "link": "/"
+        },
+        {
+          "name": "TWO",
+          "link": "/about"
+        },
+        {
+          "name": "THREE",
+          "isList": true,
+          "item": [
+            {
+              "name": "ONE",
+              "link": "/"
+            },
+            {
+              "name": "ONE",
+              "link": "/about"
+            }
+          ]
+        },
+        {
+          "name": "FOUR",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "name": "資訊",
+      "type": "url",
+      "link": "https://google.com"
+    },
+    {
+      "name": "部落格",
+      "link": "/"
+    },
+    {
+      "name": "問答",
+      "link": "/"
+    }
+  ]
+}
