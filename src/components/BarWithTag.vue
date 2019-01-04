@@ -36,12 +36,8 @@ export default {
       deep: true,
       handler: function (newVal, oldVal) {
         this.data = JSON.parse(JSON.stringify(newVal))
-        Object.keys(this.data.score).forEach(d => {
-          this.data.score[d].now = 0
-        })
         setTimeout(() => {
           Object.keys(this.data.score).forEach(d => {
-            this.data.score[d].backup = newVal.score[d].now
             this.countAnimate(this.data.score[d])
           })
         }, this.delay)
@@ -57,54 +53,65 @@ export default {
         window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
       window.requestAnimationFrame = requestAnimationFrame;
     },
-    substrNum(str) {
-      if (str.toString().indexOf('.') < 0) {
-        return str
-      }
-      str = str.toString()
-      let afterDecimalPoint = str.split('.')[1]
-      return str = str.replace(afterDecimalPoint, afterDecimalPoint.substr(0, 2))
-    },
-    // Robert Penner's easeOutExpo
-    // c => endNumber d=> duration
-    easeOutExpo(t, b, c, d) {
-      return c * (-Math.pow(2, -10 * t / d) + 1) * 1024 / 1023 + b;
-    },
+    /**
+     * score: {
+     *  max: % 數用
+     *  now: 顯示用
+     *  end: 實值
+     * }
+     */
     countAnimate(score) {
-      let start = 0,
-        end = score.backup,
+      let start = score.end * 0.7,
+        end = score.end,
         max = score.max,
         self = this
 
       function callback(timestamp) {
-        let val = self.createVal(timestamp, start, end, callback)
+        let val = createVal(timestamp, start, end, callback)
         if (score.percentage) {
-          score.now = self.substrNum(val / max * 100) + '%'
+          score.now = substrNum(val / max * 100) + '%'
         } else {
           score.now = val
         }
       }
-      requestAnimationFrame(callback.bind(this))
-    },
-    createVal(timestamp, startVal, endVal, callback) {
-      if (!this.startTime) { this.startTime = timestamp }
-      this.timestamp = timestamp
-      let progress = timestamp - this.startTime;
 
-      let countdown = (startVal > endVal)
-      let val = 0
-      if (countdown) {
-        val = startVal - this.easeOutExpo(progress, 0, startVal - endVal, this.duration);
-        val = val < endVal ? endVal : val
-      } else {
-        val = this.easeOutExpo(progress, startVal, endVal - startVal, this.duration);
-        val = val > endVal ? endVal : val
+      function createVal(timestamp, startVal, endVal, callback) {
+        if (!self.startTime) { self.startTime = timestamp }
+        self.timestamp = timestamp
+        let progress = timestamp - self.startTime;
+
+        let countdown = (startVal > endVal)
+        let val = 0
+        if (countdown) {
+          val = startVal - easeOutExpo(progress, 0, startVal - endVal, self.duration);
+          val = val < endVal ? endVal : val
+        } else {
+          val = easeOutExpo(progress, startVal, endVal - startVal, self.duration);
+          val = val > endVal ? endVal : val
+        }
+        let finalVal = substrNum(val)
+        if (progress < self.duration) {
+          requestAnimationFrame(callback)
+        }
+        return finalVal
       }
-      let finalVal = this.substrNum(val)
-      if (progress < this.duration) {
-        requestAnimationFrame(callback)
+
+      function substrNum(str) {
+        if (str.toString().indexOf('.') < 0) {
+          return str
+        }
+        str = str.toString()
+        let afterDecimalPoint = str.split('.')[1]
+        return str = str.replace(afterDecimalPoint, afterDecimalPoint.substr(0, 2))
       }
-      return finalVal
+
+      // Robert Penner's easeOutExpo
+      // c => endNumber d=> duration
+      function easeOutExpo(t, b, c, d) {
+        return c * (-Math.pow(2, -10 * t / d) + 1) * 1024 / 1023 + b;
+      }
+
+      requestAnimationFrame(callback.bind(this))
     }
   }
 };

@@ -24,6 +24,13 @@
     .menu-container
       h2 Menu
       Menu(:menu="menuProps")
+    .side-container
+      h2 Side Bar
+      .side-box
+        SideBar
+    .board-container
+      h2 Board
+      Board
 </template>
 
 <script>
@@ -35,6 +42,8 @@ import AvatarTree from '@/components/AvatarTree'
 import AvatarInfo from '@/components/AvatarInfo'
 import Tabs from '@/components/Tabs'
 import Menu from '@/components/Menu'
+import SideBar from '@/components/SideBar'
+import Board from '@/components/Board'
 
 // Props
 import barWithTagProps from '@/components/props/barWithTagProps.json'
@@ -55,7 +64,9 @@ export default {
     AvatarTree,
     AvatarInfo,
     Tabs,
-    Menu
+    Menu,
+    SideBar,
+    Board
   },
   data: function () {
     return {
@@ -65,7 +76,8 @@ export default {
       avatarTreeProps: [],
       avatarInfoProps: {},
       tabsProps: [],
-      menuProps: {}
+      menuProps: {},
+      SideBar: {}
     }
   },
   mounted() {
@@ -96,5 +108,8 @@ export default {
 
   .menu-container
     height: 60px
+
+  .side-box
+    width: 400px
 
 </style>

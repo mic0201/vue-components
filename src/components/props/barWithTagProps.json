@@ -29,32 +29,38 @@
     "GOLD Issued": {
       "percentage": true,
       "max": 2000,
-      "now": 500
+      "now": 0,
+      "end": 500
     },
     "GOLD Issued 1": {
       "percentage": true,
       "max": 2000,
-      "now": 500
+      "now": 0,
+      "end": 500
     },
     "GOLD Price": {
       "percentage": false,
       "max": 2000,
-      "now": 740
+      "now": 0,
+      "end": 740
     },
     "GOLD Distributed": {
       "percentage": true,
       "max": 10000,
-      "now": 7600
+      "now": 0,
+      "end": 7600
     },
     "Market Cap": {
       "percentage": false,
       "max": 222000,
-      "now": 101200
+      "now": 0,
+      "end": 101200
     },
     "Market Cap 1": {
       "percentage": false,
       "max": 222000,
-      "now": 101200
+      "now": 0,
+      "end": 101200
     }
   }
 }
