@@ -137,7 +137,7 @@ export default {
           > span
             font-size: 2rem
             margin-left: .7rem
-            color: $keyColor_1
+            color: $keyColor_3
 
         .bar-backing
           width: 100%
@@ -147,7 +147,7 @@ export default {
             position: relative
             width: 40%
             height: 3px
-            background-color: $keyColor_1
+            background-color: $keyColor_3
             transition: width 1s
             .tip
               position: absolute

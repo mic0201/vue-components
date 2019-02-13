@@ -70,10 +70,10 @@ export default {
     +show($top)
 
   @mixin whenHoverList
-    background-color: $keyColor_2
+    background-color: $keyColor_4
 
   @mixin whenHoverItem
-    background-color: $keyColor_1
+    background-color: $keyColor_2
 
   .menu
     background-color: $keyColor_3
@@ -104,7 +104,7 @@ export default {
           padding: 10px 12px
 
         &:hover
-          background-color: $keyColor_2
+          background-color: $keyColor_5
           > .itemList
             z-index: 1 !important
             +showList(100%, 0)
@@ -168,7 +168,7 @@ export default {
         min-width: 200px
         z-index: 1
         color: white
-        background-color: $keyColor_1
+        background-color: $keyColor_3
         right: 0
         +disappear
         &.open
@@ -180,7 +180,7 @@ export default {
         .lang
           padding: .3rem .6rem
           &:hover
-            background-color: $keyColor_2
+            background-color: $keyColor_5
 
 
 </style>

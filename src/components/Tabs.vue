@@ -72,7 +72,7 @@ export default {
             right: 0
             width: 0%
             height: 3px
-            background-color: $keyColor_1
+            background-color: $keyColor_3
             transition: width .3s
 
           &.active
